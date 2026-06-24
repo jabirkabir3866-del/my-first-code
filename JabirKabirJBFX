@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JBFX Random Trading Facts</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      background: #0a0a0a;
+      font-family: 'Courier New', monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+      padding: 30px 20px;
+      max-width: 400px;
+    }
+
+    .logo {
+      color: #00ff88;
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 4px;
+      margin-bottom: 5px;
+    }
+
+    .tagline {
+      color: #555;
+      font-size: 12px;
+      letter-spacing: 2px;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      background: linear-gradient(135deg, #111, #1a1a2e);
+      border: 1px solid #00ff8844;
+      border-radius: 16px;
+      padding: 30px 25px;
+      box-shadow: 0 0 40px #00ff8822;
+      margin-bottom: 25px;
+    }
+
+    .fact-label {
+      color: #00ff88;
+      font-size: 11px;
+      letter-spacing: 3px;
+      margin-bottom: 15px;
+    }
+
+    .fact-text {
+      color: #ffffff;
+      font-size: 16px;
+      line-height: 1.7;
+      min-height: 80px;
+    }
+
+    .btn {
+      background: linear-gradient(135deg, #00ff88, #00cc66);
+      color: #000;
+      border: none;
+      padding: 14px 35px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      letter-spacing: 1px;
+      transition: all 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #00ff8866;
+    }
+
+    .counter {
+      color: #333;
+      font-size: 12px;
+      margin-top: 20px;
+    }
+
+    .counter span {
+      color: #00ff88;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">JBFX</div>
+    <div class="tagline">SMART MONEY TRADING FACTS</div>
+
+    <div class="card">
+      <div class="fact-label">⚡ DID YOU KNOW?</div>
+      <div class="fact-text" id="fact">
+        Click the button to reveal a trading fact!
+      </div>
+    </div>
+
+    <button class="btn" onclick="showFact()">
+      NEXT FACT →
+    </button>
+
+    <div class="counter">Fact <span id="current">0</span> of <span id="total"></span></div>
+  </div>
+
+  <script>
+    const facts = [
+      "The Forex market trades over $7.5 trillion every single day — making it the largest financial market in the world.",
+      "Smart Money Concepts (SMC) is based on how banks and institutions move price to hunt retail traders' stop losses before reversing.",
+      "Only about 10-15% of retail forex traders are consistently profitable long-term.",
+      "The most traded currency pair in the world is EUR/USD, accounting for about 23% of all forex transactions.",
+      "A Break of Structure (BoS) confirms trend continuation, while a Change of Character (ChoCh) signals a potential reversal.",
+      "Order Blocks are the last bullish or bearish candle before a significant move — institutions leave their footprints there.",
+      "The London session (8AM-12PM GMT) is the most volatile trading session, responsible for about 35% of all forex volume.",
+      "Fair Value Gaps (FVG) are imbalances in price where institutions left unfilled orders — price often returns to fill them.",
+      "Risk management is more important than strategy — even a 40% win rate can be profitable with a 1:3 risk-reward ratio.",
+      "The Volatility 75 Index (VIX) can move 100-500 points in seconds — making discipline and SL placement critical."
+    ];
+
+    let current = 0;
+    document.getElementById('total').textContent = facts.length;
+
+    function showFact() {
+      document.getElementById('fact').textContent = facts[current];
+      current = (current + 1) % facts.length;
+      document.getElementById('current').textContent = current;
+    }
+  </script>
+</body>
+</html>
